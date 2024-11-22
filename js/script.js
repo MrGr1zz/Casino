@@ -87,8 +87,9 @@ function generateRandomCard() {
 
 function stop_game() {
     if (totalScorePC > 21 && totalScorePlayer > 21) alert("DRAW");
-    if (Math.abs(21 - totalScorePC) < Math.abs(21 - totalScorePlayer)) alert("Dealer WON");
-    else if (Math.abs(21 - totalScorePC) > Math.abs(21 - totalScorePlayer)) alert(`${username.textContent} WON`);
+    const validScorePC = totalScorePC <= 21 ? totalScorePC : -Infinity;
+    const validScorePlayer = totalScorePlayer <= 21 ? totalScorePlayer : -Infinity;
+    if (Math.abs(21 - validScorePC) < Math.abs(21 - validScorePlayer)) alert("Dealer WON");
+    else if (Math.abs(21 - validScorePC) > Math.abs(21 - validScorePlayer)) alert(`${username.textContent} WON`);
     else alert("DRAW");
 }
-
